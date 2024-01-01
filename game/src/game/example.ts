@@ -2,6 +2,7 @@
 import Phaser from "phaser";
 import { Player } from "./prototypes/Player";
 import { Enemy } from "./prototypes/Enemy";
+import { Turret } from "./prototypes/Turret";
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -29,17 +30,31 @@ class Example extends Phaser.Scene {
     this.scale.displaySize.setAspectRatio(WIDTH / HEIGHT);
     this.scale.refresh();
 
-    const group = this.add.group();
+    const enemies = this.add.group();
+    const players = this.add.group();
+    const bullets = this.add.group();
 
-    const player = new Player({
-      scene: this,
-      x: WIDTH / 2,
-      y: HEIGHT / 2,
-      texture: "solder",
-    });
+    players.add(
+      new Player({
+        scene: this,
+        x: WIDTH / 2,
+        y: HEIGHT / 2,
+        texture: "solder",
+      }),
+    );
+
+    players.add(
+      new Turret({
+        scene: this,
+        x: WIDTH / 4,
+        y: 100,
+        enemies,
+        bullets,
+      }),
+    );
 
     setInterval(() => {
-      group.add(
+      enemies.add(
         new Enemy({
           scene: this,
           x: WIDTH / 2 + Math.random() * 800 - 400,
@@ -48,13 +63,14 @@ class Example extends Phaser.Scene {
           frame: 0,
         }),
       );
-    }, 200);
+    }, 1000);
 
-    this.physics.add.collider(group, group, (_player, _enemy) => {
-    });
+    this.physics.add.collider(enemies, enemies);
+    this.physics.add.collider(players, players);
 
-    this.physics.add.collider(player, group, (_player, enemy) => {
+    this.physics.add.collider(bullets, enemies, (bullet, enemy) => {
       enemy.destroy();
+      bullet.destroy();
     });
   }
 
