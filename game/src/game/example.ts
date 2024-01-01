@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-import { createActor } from "xstate";
 
 const WIDTH = 800;
 const HEIGHT = 600;
