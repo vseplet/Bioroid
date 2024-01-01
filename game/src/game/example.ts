@@ -5,9 +5,8 @@ const HEIGHT = 600;
 
 class Example extends Phaser.Scene {
   preload() {
-    this.load.setBaseURL("https://labs.phaser.io");
-    this.load.image("clown", "assets/sprites/clown.png");
     this.load.image("monitor", "assets/demoscene/monitor.png");
+    this.load.image("clown", "assets/sprites/clown.png");
     this.load.image("sky", "assets/skies/space2.png");
     this.load.spritesheet("ball", "assets/sprites/balls.png", {
       frameWidth: 17,
