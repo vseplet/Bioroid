@@ -1,5 +1,8 @@
 import Phaser from "phaser";
 
+const WIDTH = 800;
+const HEIGHT = 600;
+
 class Example extends Phaser.Scene {
   preload() {
     this.load.setBaseURL("https://labs.phaser.io");
@@ -13,6 +16,9 @@ class Example extends Phaser.Scene {
   }
 
   create() {
+    this.scale.displaySize.setAspectRatio(WIDTH / HEIGHT);
+    this.scale.refresh();
+
     this.add.image(400, 300, "sky");
 
     // Balls in the default world bounds
@@ -48,15 +54,19 @@ class Example extends Phaser.Scene {
 }
 
 const config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    // ...
+  },
+  type: Phaser.WEBGL,
+  width: WIDTH,
+  height: HEIGHT,
   canvasStyle: "width: 100%",
   parent: "game-container",
   physics: {
     default: "arcade",
     arcade: {
-      debug: false,
+      debug: true,
       gravity: { y: 200 },
     },
   },
