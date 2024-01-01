@@ -1,16 +1,27 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
+import { Player } from "./prototypes/Player";
+import { Enemy } from "./prototypes/Enemy";
 
 const WIDTH = 800;
 const HEIGHT = 600;
 
 class Example extends Phaser.Scene {
   preload() {
-    this.load.image("monitor", "assets/demoscene/monitor.png");
-    this.load.image("clown", "assets/sprites/clown.png");
-    this.load.image("sky", "assets/skies/space2.png");
+    this.load.image("player", "assets/sprites/clown.png");
     this.load.spritesheet("ball", "assets/sprites/balls.png", {
       frameWidth: 17,
       frameHeight: 17,
+    });
+
+    this.load.spritesheet("spider", "assets/sprites/spider.png", {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+
+    this.load.spritesheet("solder", "assets/sprites/solder.png", {
+      frameWidth: 16,
+      frameHeight: 16,
     });
   }
 
@@ -18,37 +29,37 @@ class Example extends Phaser.Scene {
     this.scale.displaySize.setAspectRatio(WIDTH / HEIGHT);
     this.scale.refresh();
 
-    this.add.image(400, 300, "sky");
+    const group = this.add.group();
 
-    // Balls in the default world bounds
-
-    const balls = this.physics.add.group({
-      key: "ball",
-      frame: [0, 1, 2, 3, 4],
-      frameQuantity: 10,
-      bounceX: 1,
-      bounceY: 1,
-      collideWorldBounds: true,
-      velocityX: 100,
-      velocityY: 100,
+    const player = new Player({
+      scene: this,
+      x: WIDTH / 2,
+      y: HEIGHT / 2,
+      texture: "solder",
     });
 
-    Phaser.Actions.RandomRectangle(
-      balls.getChildren(),
-      this.physics.world.bounds,
-    );
+    setInterval(() => {
+      group.add(
+        new Enemy({
+          scene: this,
+          x: WIDTH / 2 + Math.random() * 800 - 400,
+          y: HEIGHT / 2 + Math.random() * 800 - 400,
+          texture: "spider",
+          frame: 0,
+        }),
+      );
+    }, 200);
 
-    this.add.image(400, 300, "monitor");
+    this.physics.add.collider(group, group, (_player, _enemy) => {
+    });
 
-    // Clown in smaller bounds
+    this.physics.add.collider(player, group, (_player, enemy) => {
+      enemy.destroy();
+    });
+  }
 
-    const clown = this.physics.add.image(400, 300, "clown")
-      .setCollideWorldBounds(true, 1, 1)
-      .setVelocity(100, -100);
-
-    clown.body.setBoundsRectangle(
-      new Phaser.Geom.Rectangle(254, 186, 292, 210),
-    );
+  update(_time: number, _delta: number): void {
+    // this.player.update();
   }
 }
 
@@ -57,6 +68,7 @@ const config = {
     mode: Phaser.Scale.FIT,
     // ...
   },
+  pixelArt: true,
   type: Phaser.WEBGL,
   width: WIDTH,
   height: HEIGHT,
@@ -66,7 +78,7 @@ const config = {
     default: "arcade",
     arcade: {
       debug: true,
-      gravity: { y: 200 },
+      // gravity: { y: 200 },
     },
   },
   scene: Example,

@@ -6,14 +6,15 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + React + TS</title>
-  <script type="module" src="/src/state/main.ts"></script>
+  <script type="module" src="/src/stateMachines/mod.ts"></script>
 </head>
 
 <body>
-  <div id="game-container" className="border-2 border-primary"></div>
-  <div id="ui"></div>
+  <div id="game-container"></div>
+  <div id="ui-container"></div>
   <script type="module" src="/src/ui/main.tsx"></script>
   <script type="module" src="/src/game/example.ts"></script>
+  <script type="module" src="/src/network/init.ts"></script>
 </body>
 
 </html>

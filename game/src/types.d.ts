@@ -1,4 +1,4 @@
-import { mainGameStateActor } from "./state/mainGameState";
+import { mainGameStateActor } from "./stateMachines/mainGameState";
 
 declare global {
   interface Window {

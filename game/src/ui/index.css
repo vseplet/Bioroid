@@ -13,6 +13,15 @@ body {
   vertical-align: middle;
 }
 
+#ui-container {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
 #ui {
   position: absolute;
   z-index: 1000;
