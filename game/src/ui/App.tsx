@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./App.css";
+// import "./App.css";
 // import { initExampleGame } from "../game/example";
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
 
   return (
     <>
-      <div id="game-container" className="border-2 border-primary"></div>
     </>
   );
 }
