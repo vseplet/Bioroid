@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { createActor } from "xstate";
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -72,4 +73,16 @@ const config = {
   scene: Example,
 };
 
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+
+window.onload = () => {
+  window.mainGameStateActor.subscribe((state) => {
+    if (state.value == "active") {
+      game.resume();
+    }
+
+    if (state.value == "inactive") {
+      game.pause();
+    }
+  });
+};
