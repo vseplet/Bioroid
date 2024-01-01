@@ -72,7 +72,4 @@ const config = {
   scene: Example,
 };
 
-export const initExampleGame = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  new Phaser.Game(config);
-};
+new Phaser.Game(config);
