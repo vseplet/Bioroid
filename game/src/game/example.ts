@@ -3,28 +3,33 @@ import Phaser from "phaser";
 import { Player } from "./prototypes/Player";
 import { Enemy } from "./prototypes/Enemy";
 import { Turret } from "./prototypes/Turret";
+import { BootstrapScene } from "./scenes/BootstrapScene";
 
 const WIDTH = 800;
 const HEIGHT = 600;
 
 class Example extends Phaser.Scene {
-  preload() {
-    this.load.image("player", "assets/sprites/clown.png");
-    this.load.spritesheet("ball", "assets/sprites/balls.png", {
-      frameWidth: 17,
-      frameHeight: 17,
-    });
-
-    this.load.spritesheet("spider", "assets/sprites/spider.png", {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
-
-    this.load.spritesheet("solder", "assets/sprites/solder.png", {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+  constructor() {
+    super("GameScene");
   }
+
+  // preload() {
+  //   this.load.image("player", "assets/sprites/clown.png");
+  //   this.load.spritesheet("ball", "assets/sprites/balls.png", {
+  //     frameWidth: 17,
+  //     frameHeight: 17,
+  //   });
+
+  //   this.load.spritesheet("spider", "assets/sprites/spider.png", {
+  //     frameWidth: 16,
+  //     frameHeight: 16,
+  //   });
+
+  //   this.load.spritesheet("solder", "assets/sprites/solder.png", {
+  //     frameWidth: 16,
+  //     frameHeight: 16,
+  //   });
+  // }
 
   create() {
     this.scale.displaySize.setAspectRatio(WIDTH / HEIGHT);
@@ -63,7 +68,7 @@ class Example extends Phaser.Scene {
           frame: 0,
         }),
       );
-    }, 1000);
+    }, 2000);
 
     this.physics.add.collider(enemies, enemies);
     this.physics.add.collider(players, players);
@@ -97,7 +102,7 @@ const config = {
       // gravity: { y: 200 },
     },
   },
-  scene: Example,
+  scene: [BootstrapScene, Example],
 };
 
 const game = new Phaser.Game(config);

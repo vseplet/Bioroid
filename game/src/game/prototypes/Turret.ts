@@ -1,24 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
-
-export class TurretBullet extends Phaser.Physics.Arcade.Sprite {
-  //@ts-ignore
-  constructor(scene, x, y, texture) {
-    super(scene, x, y, texture);
-
-    scene.add.existing(this);
-    scene.physics.world.enable(this);
-
-    this.setCollideWorldBounds(true);
-
-    this.scene.events.on("update", this.update, this);
-  }
-
-  update() {
-    // Логика обновления пули, если необходимо
-  }
-}
+import { TurretBullet } from "./Bullet";
 
 export class Turret extends Phaser.GameObjects.Container {
   private head!: Phaser.GameObjects.Sprite;
