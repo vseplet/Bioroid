@@ -23,14 +23,14 @@ export class BootstrapScene extends Phaser.Scene {
     });
 
     this.load.on("progress", (value: number) => {
-      console.log(`progress! ${value}`);
+      window.resourceLoadProgress = value;
     });
 
     this.load.on("complete", () => {
-      console.log("complete!");
-      //   console.log(this.load);
-      //   console.log(this.load.state);
       this.scene.start("GameScene");
     });
+  }
+
+  create() {
   }
 }

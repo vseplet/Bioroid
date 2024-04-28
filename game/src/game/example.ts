@@ -13,24 +13,6 @@ class Example extends Phaser.Scene {
     super("GameScene");
   }
 
-  // preload() {
-  //   this.load.image("player", "assets/sprites/clown.png");
-  //   this.load.spritesheet("ball", "assets/sprites/balls.png", {
-  //     frameWidth: 17,
-  //     frameHeight: 17,
-  //   });
-
-  //   this.load.spritesheet("spider", "assets/sprites/spider.png", {
-  //     frameWidth: 16,
-  //     frameHeight: 16,
-  //   });
-
-  //   this.load.spritesheet("solder", "assets/sprites/solder.png", {
-  //     frameWidth: 16,
-  //     frameHeight: 16,
-  //   });
-  // }
-
   create() {
     this.scale.displaySize.setAspectRatio(WIDTH / HEIGHT);
     this.scale.refresh();
@@ -99,13 +81,14 @@ const config = {
     default: "arcade",
     arcade: {
       debug: true,
-      // gravity: { y: 200 },
     },
   },
   scene: [BootstrapScene, Example],
 };
 
 const game = new Phaser.Game(config);
+
+window.game = game;
 
 window.onload = () => {
   window.mainGameStateActor.subscribe((state) => {

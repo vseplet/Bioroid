@@ -12,6 +12,7 @@
   "dependencies": {
     "@tonconnect/ui-react": "^2.0.0",
     "@xstate/react": "^4.0.2",
+    "daisyui": "^4.4.24",
     "peerjs": "^1.5.2",
     "phaser": "^3.70.0",
     "react": "^18.2.0",
@@ -25,6 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.16",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
