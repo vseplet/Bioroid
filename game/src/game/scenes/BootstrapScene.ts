@@ -7,6 +7,13 @@ export class BootstrapScene extends Phaser.Scene {
 
   preload() {
     this.load.image("player", "assets/sprites/clown.png");
+
+    this.load.aseprite(
+      "title",
+      "assets/spritesheets/title/title.png",
+      "assets/spritesheets/title/title.json",
+    );
+
     this.load.spritesheet("ball", "assets/sprites/balls.png", {
       frameWidth: 17,
       frameHeight: 17,

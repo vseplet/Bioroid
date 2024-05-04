@@ -9,7 +9,7 @@ export class Turret extends Phaser.GameObjects.Container {
   private enemies!: Phaser.GameObjects.Group;
   private bullets!: Phaser.GameObjects.Group;
 
-  private bulletSpeed: number = 400;
+  private bulletSpeed: number = 800;
   private lastShotTime: number = 0;
 
   constructor(
