@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+
+import { useEffect } from "react";
 
 function App() {
   // const [resourceLoadProgress, setResourceLoadProgress] = useState(0.0);
@@ -24,9 +26,9 @@ function App() {
   useEffect(() => {
     checkProgress();
 
-    window.mainGameStateActor.subscribe((state) => {
-      // setState(state.value as string);
-    });
+    // window.mainGameStateActor.subscribe((state) => {
+    //   // setState(state.value as string);
+    // });
   }, []);
 
   return (
