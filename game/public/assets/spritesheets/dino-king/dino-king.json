@@ -74,14 +74,14 @@
     "scale": "1",
     "frameTags": [
       {
-        "name": "Run-Green",
+        "name": "DinoKing-Run-Green",
         "from": 0,
         "to": 3,
         "direction": "forward",
         "color": "#6acd5bff"
       },
       {
-        "name": "Run-Red",
+        "name": "DinoKing-Run-Red",
         "from": 4,
         "to": 7,
         "direction": "forward",

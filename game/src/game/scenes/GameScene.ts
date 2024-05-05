@@ -13,28 +13,6 @@ export class GameScene extends Phaser.Scene {
     );
     this.scale.refresh();
 
-    {
-      const [defaultAnim, _testAnim] = this.anims.createFromAseprite("title");
-      defaultAnim.repeat = -1;
-      defaultAnim.repeatDelay = 1000;
-    }
-
-    {
-      const [defaultAnim, _testAnim] = this.anims.createFromAseprite("hero");
-      defaultAnim.repeat = -1;
-    }
-
-    {
-      const [defaultAnim] = this.anims.createFromAseprite("dino");
-      defaultAnim.repeat = -1;
-    }
-
-    {
-      const [run, angry] = this.anims.createFromAseprite("chicken");
-      run.repeat = -1;
-      angry.repeat = -1;
-    }
-
     const sprite = this.add.sprite(
       phaserConfig.width / 2,
       phaserConfig.height / 2,
@@ -70,6 +48,27 @@ export class GameScene extends Phaser.Scene {
       "chicken",
     ).setScale(10, 10)
       .play("Chicken-Run-Angry");
+
+    this.add.sprite(
+      50,
+      200,
+      "dino-rider",
+    ).setScale(10, 10)
+      .play("DinoRider-Run");
+
+    this.add.sprite(
+      50,
+      350,
+      "dino-king",
+    ).setScale(10, 10)
+      .play("DinoKing-Run-Green");
+
+    this.add.sprite(
+      50,
+      500,
+      "dino-king",
+    ).setScale(10, 10)
+      .play("DinoKing-Run-Red");
 
     const tweenConfig = {
       targets: sprite,
