@@ -50,6 +50,55 @@ export class GameScene extends Phaser.Scene {
       .play("Chicken-Run-Angry");
 
     this.add.sprite(
+      450,
+      50,
+      "egg",
+    ).setScale(10, 10)
+      .play("Egg-Idle");
+
+    this.add.sprite(
+      550,
+      50,
+      "slime",
+    ).setScale(10, 10)
+      .play("Slime-Jump-Big-Green");
+
+    this.add.sprite(
+      650,
+      50,
+      "slime",
+    ).setScale(10, 10)
+      .play("Slime-Jump-Small-Green");
+
+    this.add.sprite(
+      750,
+      50,
+      "slime",
+    ).setScale(10, 10)
+      .play("Slime-Jump-Big-Red");
+
+    this.add.sprite(
+      750,
+      150,
+      "slime",
+    ).setScale(10, 10)
+      .play("Slime-Jump-Small-Red");
+
+    this.add.sprite(
+      750,
+      250,
+      "slime",
+    ).setScale(10, 10)
+      .play("Slime-Jump-Big-Orange");
+
+    this.add.sprite(
+      750,
+      350,
+      "slime",
+    ).setScale(10, 10)
+      .play("Slime-Jump-Small-Orange");
+
+    this.add.sprite(
       50,
       200,
       "dino-rider",

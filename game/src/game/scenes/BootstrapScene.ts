@@ -44,6 +44,17 @@ export class BootstrapScene extends Phaser.Scene {
       "assets/spritesheets/dino-king/dino-king.json",
     );
 
+    this.load.aseprite(
+      "egg",
+      "assets/spritesheets/egg/egg.png",
+      "assets/spritesheets/egg/egg.json",
+    );
+    this.load.aseprite(
+      "slime",
+      "assets/spritesheets/slime/slime.png",
+      "assets/spritesheets/slime/slime.json",
+    );
+
     this.load.spritesheet("ball", "assets/sprites/balls.png", {
       frameWidth: 17,
       frameHeight: 17,
@@ -97,9 +108,24 @@ export class BootstrapScene extends Phaser.Scene {
     }
 
     {
+      const [defaultAnim] = this.anims.createFromAseprite("egg");
+      defaultAnim.repeat = -1;
+    }
+
+    {
       const [green, red] = this.anims.createFromAseprite("dino-king");
       green.repeat = -1;
       red.repeat = -1;
+    }
+
+    {
+      const [a, b, c, d, e, f] = this.anims.createFromAseprite("slime");
+      a.repeat = -1;
+      b.repeat = -1;
+      c.repeat = -1;
+      d.repeat = -1;
+      e.repeat = -1;
+      f.repeat = -1;
     }
   }
 }

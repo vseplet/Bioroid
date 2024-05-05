@@ -250,42 +250,42 @@
     "scale": "1",
     "frameTags": [
       {
-        "name": "Jump-Big-Green",
+        "name": "Slime-Jump-Big-Green",
         "from": 0,
         "to": 4,
         "direction": "forward",
         "color": "#6acd5bff"
       },
       {
-        "name": "Jump-Small-Green",
+        "name": "Slime-Jump-Small-Green",
         "from": 5,
         "to": 9,
         "direction": "forward",
         "color": "#6aff5bff"
       },
       {
-        "name": "Jump-Big-Red",
+        "name": "Slime-Jump-Big-Red",
         "from": 10,
         "to": 14,
         "direction": "forward",
         "color": "#fe5b59ff"
       },
       {
-        "name": "Jump-Small-Red",
+        "name": "Slime-Jump-Small-Red",
         "from": 15,
         "to": 19,
         "direction": "forward",
         "color": "#fe7e59ff"
       },
       {
-        "name": "Jump-Big-Orange",
+        "name": "Slime-Jump-Big-Orange",
         "from": 20,
         "to": 24,
         "direction": "forward",
         "color": "#57b9f2ff"
       },
       {
-        "name": "Jump-Small-Otange",
+        "name": "Slime-Jump-Small-Orange",
         "from": 25,
         "to": 29,
         "direction": "forward",
