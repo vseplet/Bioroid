@@ -14,6 +14,24 @@ export class BootstrapScene extends Phaser.Scene {
       "assets/spritesheets/title/title.json",
     );
 
+    this.load.aseprite(
+      "hero",
+      "assets/spritesheets/hero/hero.png",
+      "assets/spritesheets/hero/hero.json",
+    );
+
+    this.load.aseprite(
+      "dino",
+      "assets/spritesheets/dino/dino.png",
+      "assets/spritesheets/dino/dino.json",
+    );
+
+    this.load.aseprite(
+      "chicken",
+      "assets/spritesheets/chicken/chicken.png",
+      "assets/spritesheets/chicken/chicken.json",
+    );
+
     this.load.spritesheet("ball", "assets/sprites/balls.png", {
       frameWidth: 17,
       frameHeight: 17,
