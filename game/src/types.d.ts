@@ -7,6 +7,7 @@ declare global {
     resourceLoadProgress: number;
     game: Phaser.Game;
     peer: Peer;
+    gamepads: Phaser.Input.Gamepad;
     mainGameStateActor: typeof mainGameStateActor;
   }
 }

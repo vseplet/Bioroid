@@ -8,6 +8,8 @@ export class BootstrapScene extends Phaser.Scene {
   preload() {
     this.load.image("player", "assets/sprites/clown.png");
 
+    this.load.image("rider", "assets/sprites/rider.png");
+
     this.load.aseprite(
       "title",
       "assets/spritesheets/title/title.png",
@@ -87,8 +89,9 @@ export class BootstrapScene extends Phaser.Scene {
     }
 
     {
-      const [defaultAnim] = this.anims.createFromAseprite("hero");
-      defaultAnim.repeat = -1;
+      // const [defaultAnim] = this.anims.createFromAseprite("hero");
+      // defaultAnim.repeat = -1;
+      this.anims.createFromAseprite("hero");
     }
 
     {

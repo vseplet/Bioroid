@@ -19,7 +19,11 @@ export const phaserConfig = {
     default: "arcade",
     arcade: {
       debug: true,
+      gravity: { y: 1000 },
     },
+  },
+  input: {
+    gamepad: true,
   },
   scene: [BootstrapScene, GameScene],
 };

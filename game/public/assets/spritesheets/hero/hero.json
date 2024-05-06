@@ -57,7 +57,7 @@
         "color": "#6acd5bff"
       },
       {
-        "name": "Idle",
+        "name": "Hero-Idle",
         "from": 0,
         "to": 0,
         "direction": "forward",

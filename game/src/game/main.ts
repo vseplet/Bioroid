@@ -1,6 +1,7 @@
 import { phaserConfig } from "./phaserConfig";
 
 const game = new Phaser.Game(phaserConfig);
+window.game = game;
 
 window.onload = () => {
   window.mainGameStateActor.subscribe((state) => {
