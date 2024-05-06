@@ -19,9 +19,10 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     super(config.scene, config.x, config.y, config.texture);
     this.name = "player";
 
-    this.setScale(10, 10);
+    this.setScale(5, 5);
     config.scene.add.existing(this);
     config.scene.physics.add.existing(this);
+    this.setBounce(0.8);
     this.setCollideWorldBounds(true);
 
     this.cursors = config.scene.input.keyboard!.createCursorKeys();

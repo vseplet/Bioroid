@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
-import { Player } from "./prototypes/Player";
-import { Enemy } from "./prototypes/Enemy";
-import { Turret } from "./prototypes/Turret";
-import { BootstrapScene } from "./scenes/BootstrapScene";
+import { Player } from "../objects/Player";
+import { Enemy } from "../objects/Enemy";
+import { Turret } from "../objects/Turret";
+import { BootstrapScene } from "../scenes/BootstrapScene";
 
 const WIDTH = 800;
 const HEIGHT = 600;

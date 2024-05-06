@@ -3,9 +3,9 @@ import Phaser from "phaser";
 import { phaserConfig } from "../phaserConfig";
 import { Player } from "../objects/Player";
 
-export class GameScene extends Phaser.Scene {
+export class HeroMove extends Phaser.Scene {
   constructor() {
-    super("GameScene");
+    super("HeroMove");
   }
 
   create() {

@@ -89,9 +89,9 @@ export class BootstrapScene extends Phaser.Scene {
     }
 
     {
-      // const [defaultAnim] = this.anims.createFromAseprite("hero");
-      // defaultAnim.repeat = -1;
-      this.anims.createFromAseprite("hero");
+      const [defaultAnim] = this.anims.createFromAseprite("hero");
+      defaultAnim.msPerFrame = 1;
+      defaultAnim.frameRate = 15;
     }
 
     {
