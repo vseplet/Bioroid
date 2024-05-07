@@ -76,7 +76,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.setFlipX(this.body!.velocity.x < 0);
     }
 
-    console.log(this.body!.blocked);
     if (this.body!.blocked.down == false) {
       const direction = this.flipX ? -1 : 1;
       this.setRotation(time * 0.02 * direction);

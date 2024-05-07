@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
 import { phaserConfig } from "../phaserConfig";
-import { generateZeroArray } from "../helpers/generateZeroArray";
 import { Player } from "../objects/Player";
+import {
+  createCollisionLDtkTilemap,
+  createLDtkilemap,
+} from "../systems/systemTilemapGenerator";
 
 export class GameScene extends Phaser.Scene {
   constructor() {
@@ -19,6 +22,15 @@ export class GameScene extends Phaser.Scene {
       frameWidth: 8,
       frameHeight: 8,
     });
+
+    this.load.spritesheet(
+      "CollidersTileset",
+      "assets/tilesets/colliders/colliders.png",
+      {
+        frameWidth: 8,
+        frameHeight: 8,
+      },
+    );
   }
 
   create() {
@@ -26,34 +38,22 @@ export class GameScene extends Phaser.Scene {
 
     const level1 = levels.levels[0];
     const layers = level1.layerInstances;
-    // const entitiesLayer = layers[0];
-    const decorationLayer = layers[1];
-    // const collisionLayer = layers[2];
+    const decorationLayer = createLDtkilemap(
+      this,
+      layers[2],
+      "LevelTileset",
+    );
 
-    const __cHei = decorationLayer.__cHei;
-    const __cWid = decorationLayer.__cWid;
-    const __gridSize = decorationLayer.__gridSize;
+    const collisionLayer = createCollisionLDtkTilemap(
+      this,
+      layers[1],
+      "CollidersTileset",
+      [0, 1],
+    );
 
-    const levelData = generateZeroArray(__cWid, __cHei);
-    // make decore
-    for (const tileData of decorationLayer.gridTiles) {
-      // console.log(tileData);
-      const x = tileData.px[0] / __gridSize, y = tileData.px[1] / __gridSize;
-      // console.log(`${x} ${y}`);
-      levelData[y][x] = tileData.t;
-    }
-
-    const map = this.make.tilemap({
-      data: levelData,
-      tileWidth: __gridSize,
-      tileHeight: __gridSize,
-    });
-
-    const tiles = map.addTilesetImage("LevelTileset");
-    const layer = map.createLayer(0, tiles!, 0, 0);
-
-    layer?.setCollision([0, 1, 2, 3, 42, 43], true);
-    layer?.setScale(5, 5);
+    collisionLayer?.setScale(5, 5);
+    collisionLayer.setAlpha(0.5);
+    decorationLayer?.setScale(5, 5);
 
     const hero = new Player({
       scene: this,
@@ -62,8 +62,7 @@ export class GameScene extends Phaser.Scene {
       texture: "Hero",
     });
 
-    // layer?.setCollisionByProperty({ collides: true });
-    this.physics.add.collider(hero, layer!);
+    this.physics.add.collider(hero, collisionLayer!);
 
     this.physics.world.setBounds(
       0,
@@ -73,7 +72,7 @@ export class GameScene extends Phaser.Scene {
     );
 
     this.cameras.main.startFollow(hero);
-
+    this.cameras.main.zoom = 1;
     // map.renderDebug(this.add.graphics(), {
     //   tileColor: null, // Non-colliding tiles
     //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 200), // Colliding tiles
