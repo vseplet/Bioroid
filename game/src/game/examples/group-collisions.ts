@@ -91,7 +91,7 @@ const game = new Phaser.Game(config);
 window.game = game;
 
 window.onload = () => {
-  window.mainGameStateActor.subscribe((state) => {
+  window.mainGameStateActor.subscribe((state: { value: string }) => {
     if (state.value == "active") {
       game.resume();
     }

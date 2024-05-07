@@ -26,9 +26,9 @@ export class GameScene extends Phaser.Scene {
 
     const level1 = levels.levels[0];
     const layers = level1.layerInstances;
-    const entitiesLayer = layers[0];
+    // const entitiesLayer = layers[0];
     const decorationLayer = layers[1];
-    const collisionLayer = layers[2];
+    // const collisionLayer = layers[2];
 
     const __cHei = decorationLayer.__cHei;
     const __cWid = decorationLayer.__cWid;
