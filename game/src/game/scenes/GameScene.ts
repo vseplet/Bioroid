@@ -35,6 +35,7 @@ export class GameScene extends Phaser.Scene {
 
   create() {
     const levels = this.cache.json.get("levels.ldtk");
+    console.log(levels);
 
     const level1 = levels.levels[0];
     const layers = level1.layerInstances;
@@ -51,9 +52,15 @@ export class GameScene extends Phaser.Scene {
       [0, 1],
     );
 
-    collisionLayer?.setScale(5, 5);
+    collisionLayer?.setScale(
+      phaserConfig.scale.count,
+      phaserConfig.scale.count,
+    );
     collisionLayer.setAlpha(0.5);
-    decorationLayer?.setScale(5, 5);
+    decorationLayer?.setScale(
+      phaserConfig.scale.count,
+      phaserConfig.scale.count,
+    );
 
     const hero = new Player({
       scene: this,
