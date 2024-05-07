@@ -18,7 +18,7 @@ export class GameScene extends Phaser.Scene {
     this.title = this.add.sprite(
       phaserConfig.width / 2,
       phaserConfig.height / 2,
-      "title",
+      "Title",
     )
       .setScale(8, 8)
       .play("Default");
@@ -26,7 +26,7 @@ export class GameScene extends Phaser.Scene {
     this.add.sprite(
       50,
       50,
-      "hero",
+      "Hero",
     ).setScale(10, 10)
       .play("Hero-Run");
 

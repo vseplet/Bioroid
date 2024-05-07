@@ -1,4 +1,4 @@
-import { mainGameStateActor } from "./state/mainGameState";
+import { mainGameStateActor } from "./stateMachines/mainGameState";
 import Phaser from "phaser";
 import { Peer } from "peerjs";
 

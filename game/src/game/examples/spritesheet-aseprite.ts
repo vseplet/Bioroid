@@ -14,14 +14,14 @@ class Example extends Phaser.Scene {
     this.scale.displaySize.setAspectRatio(WIDTH / HEIGHT);
     this.scale.refresh();
 
-    const [defaultAnim, _testAnim] = this.anims.createFromAseprite("title");
+    const [defaultAnim, _testAnim] = this.anims.createFromAseprite("Title");
 
     console.log(defaultAnim);
 
     defaultAnim.repeat = -1;
     defaultAnim.repeatDelay = 1000;
 
-    const sprite = this.add.sprite(WIDTH / 2, HEIGHT / 2, "title")
+    const sprite = this.add.sprite(WIDTH / 2, HEIGHT / 2, "Title")
       .setScale(10, 10)
       .setAngle(100)
       .play("Default");

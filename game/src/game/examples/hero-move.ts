@@ -3,9 +3,9 @@ import Phaser from "phaser";
 import { phaserConfig } from "../phaserConfig";
 import { Player } from "../objects/Player";
 
-export class HeroMove extends Phaser.Scene {
+export class GameScene extends Phaser.Scene {
   constructor() {
-    super("HeroMove");
+    super("GameScene");
   }
 
   create() {
@@ -25,7 +25,7 @@ export class HeroMove extends Phaser.Scene {
       scene: this,
       x: phaserConfig.width / 2,
       y: phaserConfig.height / 2,
-      texture: "hero",
+      texture: "Hero",
     });
 
     const rect = this.add.rectangle(

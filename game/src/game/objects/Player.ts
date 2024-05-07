@@ -22,7 +22,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.setScale(5, 5);
     config.scene.add.existing(this);
     config.scene.physics.add.existing(this);
-    this.setBounce(0.8);
     this.setCollideWorldBounds(true);
 
     this.cursors = config.scene.input.keyboard!.createCursorKeys();
@@ -48,7 +47,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     if (
       (this.getAxisY() < -0.1 || this.cursors.up.isDown) &&
-      this.body?.touching.down
+      this.body?.blocked.down
     ) {
       this.setVelocityY(-700);
       this.anims.play("Hero-Idle", true);
@@ -56,14 +55,14 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
 
     if (this.cursors.left.isDown || this.getAxisX() < -0.1) {
       this.setVelocityX(-260);
-      if (this.body?.touching.down) {
+      if (this.body?.blocked.down) {
         this.anims.play("Hero-Run", true);
       } else {
         this.anims.play("Hero-Idle", true);
       }
     } else if (this.cursors.right.isDown || this.getAxisX() > 0.1) {
       this.setVelocityX(260);
-      if (this.body?.touching.down) {
+      if (this.body?.blocked.down) {
         this.anims.play("Hero-Run", true);
       } else {
         this.anims.play("Hero-Idle", true);
@@ -77,7 +76,8 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.setFlipX(this.body!.velocity.x < 0);
     }
 
-    if (this.body!.touching.down == false) {
+    console.log(this.body!.blocked);
+    if (this.body!.blocked.down == false) {
       const direction = this.flipX ? -1 : 1;
       this.setRotation(time * 0.02 * direction);
     } else {

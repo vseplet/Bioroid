@@ -6,18 +6,16 @@ export class BootstrapScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("player", "assets/sprites/clown.png");
-
     this.load.image("rider", "assets/sprites/rider.png");
 
     this.load.aseprite(
-      "title",
+      "Title",
       "assets/spritesheets/title/title.png",
       "assets/spritesheets/title/title.json",
     );
 
     this.load.aseprite(
-      "hero",
+      "Hero",
       "assets/spritesheets/hero/hero.png",
       "assets/spritesheets/hero/hero.json",
     );
@@ -57,20 +55,22 @@ export class BootstrapScene extends Phaser.Scene {
       "assets/spritesheets/slime/slime.json",
     );
 
-    this.load.spritesheet("ball", "assets/sprites/balls.png", {
-      frameWidth: 17,
-      frameHeight: 17,
-    });
+    // this.load.image("player", "assets/sprites/clown.png");
 
-    this.load.spritesheet("spider", "assets/sprites/spider.png", {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+    // this.load.spritesheet("ball", "assets/sprites/balls.png", {
+    //   frameWidth: 17,
+    //   frameHeight: 17,
+    // });
 
-    this.load.spritesheet("solder", "assets/sprites/solder.png", {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+    // this.load.spritesheet("spider", "assets/sprites/spider.png", {
+    //   frameWidth: 16,
+    //   frameHeight: 16,
+    // });
+
+    // this.load.spritesheet("solder", "assets/sprites/solder.png", {
+    //   frameWidth: 16,
+    //   frameHeight: 16,
+    // });
 
     this.load.on("progress", (value: number) => {
       window.resourceLoadProgress = value;
@@ -83,13 +83,13 @@ export class BootstrapScene extends Phaser.Scene {
 
   create() {
     {
-      const [defaultAnim] = this.anims.createFromAseprite("title");
+      const [defaultAnim] = this.anims.createFromAseprite("Title");
       defaultAnim.repeat = -1;
       defaultAnim.repeatDelay = 1000;
     }
 
     {
-      const [defaultAnim] = this.anims.createFromAseprite("hero");
+      const [defaultAnim] = this.anims.createFromAseprite("Hero");
       defaultAnim.msPerFrame = 1;
       defaultAnim.frameRate = 15;
     }
