@@ -1,5 +1,6 @@
 import { createAnimations } from "./createAnimations";
 import { preloadAssets } from "./preloadAssets";
+import { initSceneSwitcher } from "./sceneSwitcher";
 import {
   createCollisionLDtkTilemap,
   createLDtkilemap,
@@ -10,6 +11,7 @@ const scripts = {
   preloadAssets,
   createLDtkilemap,
   createCollisionLDtkTilemap,
+  initSceneSwitcher,
 };
 
 export default scripts;

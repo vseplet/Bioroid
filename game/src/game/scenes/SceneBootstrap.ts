@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import scripts from "@game/scripts";
+import { mainStateSwitcher } from "../../state/mainState";
 
 export class SceneBootstrap extends Phaser.Scene {
   constructor() {
@@ -13,12 +14,14 @@ export class SceneBootstrap extends Phaser.Scene {
       window.resourceLoadProgress = value;
     });
 
+    scripts.initSceneSwitcher(this);
     this.load.on("complete", () => {
-      this.scene.start("Game");
+      mainStateSwitcher.intro();
     });
   }
 
   create() {
+    this.cameras.main.setBackgroundColor("#ffff00"); // yellow
     scripts.createAnimations(this);
   }
 }

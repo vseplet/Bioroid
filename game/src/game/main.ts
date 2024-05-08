@@ -16,6 +16,7 @@ window.game = game;
 
 window.onload = () => {
   window.mainState.subscribe((state: { value: string }) => {
+    console.log(state.value);
     if (state.value == "play") {
       game.resume();
     }

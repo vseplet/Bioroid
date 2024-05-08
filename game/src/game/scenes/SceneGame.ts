@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import scripts from "@game/scripts";
 import { defaultConfig } from "../configs/defaultConfig";
 import { Player } from "../objects/Player";
 import { PrefabSceneLevel } from "../prefabs/scenes/PrefabSceneLevel";
@@ -9,11 +10,8 @@ export class SceneGame extends PrefabSceneLevel {
     super("Game", "levels", 0);
   }
 
-  preload() {
-    window.mainState.send({ type: "PLAY" });
-  }
-
   create() {
+    scripts.initSceneSwitcher(this);
     this.createMap(resources.assets.tilesets.level, defaultConfig.scale.count);
 
     const hero = new Player({

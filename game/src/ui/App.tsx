@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
+import { mainStateSwitcher } from "../state/mainState";
 
 function App() {
   const [, setResourceLoadProgress] = useState(0.0);
@@ -30,7 +31,8 @@ function App() {
   return (
     <>
       <div className="flex justify-center items-end w-auto h-full p-3">
-        {/* <div className="flex flex-col w-1/3">
+        {
+          /* <div className="flex flex-col w-1/3">
           <div className="h-1">
             <progress
               className="progress w-auto"
@@ -39,25 +41,27 @@ function App() {
             >
             </progress>
           </div>
-        </div> */}
+        </div> */
+        }
 
         <div className="w-auto flex justify-center flex-row">
-          <p className="badge badge-primary mr-2">STATE: "{curState?.toString()}"</p>
+          <p className="badge badge-primary mr-2">
+            STATE: "{curState?.toString()}"
+          </p>
 
           <button
             className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainState.send({ type: "INTRO" });
+              mainStateSwitcher.intro();
             }}
           >
             intro
           </button>
 
-
           <button
             className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainState.send({ type: "MENU" });
+              mainStateSwitcher.menu();
             }}
           >
             menu
@@ -66,7 +70,16 @@ function App() {
           <button
             className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainState.send({ type: "PLAY" });
+              mainStateSwitcher.game();
+            }}
+          >
+            game
+          </button>
+
+          <button
+            className="btn btn-xs mr-2"
+            onClick={() => {
+              mainStateSwitcher.play();
             }}
           >
             play
@@ -75,7 +88,7 @@ function App() {
           <button
             className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainState.send({ type: "STOP" });
+              mainStateSwitcher.stop();
             }}
           >
             stop
@@ -84,7 +97,7 @@ function App() {
           <button
             className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainState.send({ type: "OVER" });
+              mainStateSwitcher.over();
             }}
           >
             over

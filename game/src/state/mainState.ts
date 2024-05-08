@@ -7,7 +7,7 @@ export const mainStateMachine = createMachine({
     bootstrap: {
       on: {
         MENU: "menu",
-        PLAY: "play",
+        INTRO: "intro",
       },
     },
 
@@ -19,6 +19,12 @@ export const mainStateMachine = createMachine({
 
     menu: {
       on: {
+        GAME: "game",
+      },
+    },
+
+    game: {
+      on: {
         PLAY: "play",
       },
     },
@@ -26,7 +32,6 @@ export const mainStateMachine = createMachine({
     play: {
       on: {
         STOP: "stop",
-        toggle: "stop",
         OVER: "over",
       },
     },
@@ -34,7 +39,6 @@ export const mainStateMachine = createMachine({
     stop: {
       on: {
         PLAY: "play",
-        toggle: "play",
         MENU: "menu",
       },
     },
@@ -49,3 +53,29 @@ export const mainStateMachine = createMachine({
 });
 
 export const mainState = createActor(mainStateMachine);
+
+export const mainStateSwitcher = {
+  intro() {
+    mainState.send({ type: "INTRO" });
+  },
+
+  menu() {
+    mainState.send({ type: "MENU" });
+  },
+
+  game() {
+    mainState.send({ type: "GAME" });
+  },
+
+  play() {
+    mainState.send({ type: "PLAY" });
+  },
+
+  stop() {
+    mainState.send({ type: "STOP" });
+  },
+
+  over() {
+    mainState.send({ type: "OVER" });
+  },
+};
