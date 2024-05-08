@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
-import { phaserConfig } from "../phaserConfig";
+import { defaultConfig } from "../configs/defaultConfig";
 
 export class Player extends Phaser.Physics.Arcade.Sprite {
   name: string = "player";
@@ -20,7 +20,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     super(config.scene, config.x, config.y, config.texture);
     this.name = "player";
 
-    this.setScale(phaserConfig.scale.count, phaserConfig.scale.count);
+    this.setScale(defaultConfig.scale.count, defaultConfig.scale.count);
     config.scene.add.existing(this);
     config.scene.physics.add.existing(this);
     this.setCollideWorldBounds(true);

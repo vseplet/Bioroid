@@ -1,19 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// import { useEffect, useState } from "react";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  // const [resourceLoadProgress, setResourceLoadProgress] = useState(0.0);
-  // const [curState, setState] = useState(
-  //   window.mainGameStateActor.logic.config.initial,
-  // );
+  const [, setResourceLoadProgress] = useState(0.0);
+  const [curState, setState] = useState(
+    window.mainState.logic.config.initial,
+  );
 
   const checkProgress = () => {
-    console.log(window.resourceLoadProgress);
-
     if (window.resourceLoadProgress && window.resourceLoadProgress <= 1) {
-      // setResourceLoadProgress(window.resourceLoadProgress * 100);
+      setResourceLoadProgress(window.resourceLoadProgress * 100);
     }
 
     if (window.resourceLoadProgress == 1) {
@@ -26,43 +22,75 @@ function App() {
   useEffect(() => {
     checkProgress();
 
-    // window.mainGameStateActor.subscribe((state) => {
-    //   // setState(state.value as string);
-    // });
+    window.mainState.subscribe((state: { value: string }) => {
+      setState(state.value as string);
+    });
   }, []);
 
   return (
     <>
-      {
-        /* <div className="flex justify-center items-center w-auto h-full">
-        <div className="flex flex-col w-1/3">
-          <progress
-            className="progress w-auto"
-            value={resourceLoadProgress}
-            max="100"
-          >
-          </progress>
-          <br />
+      <div className="flex justify-center items-end w-auto h-full p-3">
+        {/* <div className="flex flex-col w-1/3">
+          <div className="h-1">
+            <progress
+              className="progress w-auto"
+              value={resourceLoadProgress}
+              max="100"
+            >
+            </progress>
+          </div>
+        </div> */}
+
+        <div className="w-auto flex justify-center flex-row">
+          <p className="badge badge-primary mr-2">STATE: "{curState?.toString()}"</p>
+
           <button
-            className="btn btn-sm"
+            className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainGameStateActor.send({ type: "TOGGLE" });
+              window.mainState.send({ type: "INTRO" });
             }}
           >
-            START
+            intro
           </button>
-          <br />
+
+
           <button
-            className="btn btn-sm"
+            className="btn btn-xs mr-2"
             onClick={() => {
-              window.mainGameStateActor.send({ type: "TOGGLE" });
+              window.mainState.send({ type: "MENU" });
             }}
           >
-            {curState?.toString()}
+            menu
+          </button>
+
+          <button
+            className="btn btn-xs mr-2"
+            onClick={() => {
+              window.mainState.send({ type: "PLAY" });
+            }}
+          >
+            play
+          </button>
+
+          <button
+            className="btn btn-xs mr-2"
+            onClick={() => {
+              window.mainState.send({ type: "STOP" });
+            }}
+          >
+            stop
+          </button>
+
+          <button
+            className="btn btn-xs mr-2"
+            onClick={() => {
+              window.mainState.send({ type: "OVER" });
+            }}
+          >
+            over
           </button>
         </div>
-      </div>  */
-      }
+      </div>
     </>
   );
 }

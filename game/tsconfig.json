@@ -19,7 +19,22 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["src/global.d.ts"]
+    "typeRoots": ["src/global.d.ts"],
+
+    "paths": {
+      "@game/resources": [
+        "./src/game/resources.ts"
+      ],
+      "@game/scripts": [
+        "./src/game/scripts/mod.ts"
+      ],
+      "@game/configs": [
+        "./src/game/configs/mod.ts"
+      ],
+      "@state": [
+        "./src/state/mod.ts"
+      ]
+    }
   },
   "include": ["src", "src/types.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

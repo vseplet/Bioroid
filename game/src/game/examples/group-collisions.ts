@@ -3,7 +3,7 @@ import Phaser from "phaser";
 import { Player } from "../objects/Player";
 import { Enemy } from "../objects/Enemy";
 import { Turret } from "../objects/Turret";
-import { BootstrapScene } from "../scenes/BootstrapScene";
+import { SceneBootstrap } from "../scenes/SceneBootstrap";
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -83,7 +83,7 @@ const config = {
       debug: true,
     },
   },
-  scene: [BootstrapScene, Example],
+  scene: [SceneBootstrap, Example],
 };
 
 const game = new Phaser.Game(config);
@@ -91,7 +91,7 @@ const game = new Phaser.Game(config);
 window.game = game;
 
 window.onload = () => {
-  window.mainGameStateActor.subscribe((state: { value: string }) => {
+  window.mainState.subscribe((state: { value: string }) => {
     if (state.value == "active") {
       game.resume();
     }

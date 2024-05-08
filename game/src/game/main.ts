@@ -1,15 +1,26 @@
-import { phaserConfig } from "./phaserConfig";
+import configs from "./configs/mod";
 
-const game = new Phaser.Game(phaserConfig);
+const game = new Phaser.Game(configs.defaultConfig);
 window.game = game;
 
+// window.addEventListener("resize", function (event) {
+//   const WIDTH = 800;
+//   const HEIGHT = WIDTH /
+//     (document.documentElement.clientWidth /
+//       document.documentElement.clientHeight);
+
+//   game.scale.resize(WIDTH, HEIGHT);
+//   game.canvas.width = WIDTH;
+//   game.canvas.width = HEIGHT;
+// }, false);
+
 window.onload = () => {
-  window.mainGameStateActor.subscribe((state: { value: string }) => {
-    if (state.value == "active") {
+  window.mainState.subscribe((state: { value: string }) => {
+    if (state.value == "play") {
       game.resume();
     }
 
-    if (state.value == "inactive") {
+    if (state.value == "stop") {
       game.pause();
     }
   });

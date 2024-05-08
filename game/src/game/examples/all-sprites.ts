@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
-import { phaserConfig } from "../phaserConfig";
+import { defaultConfig } from "../configs/defaultConfig";
 
 export class GameScene extends Phaser.Scene {
   private title: Phaser.GameObjects.Sprite | undefined;
@@ -11,13 +11,13 @@ export class GameScene extends Phaser.Scene {
 
   create() {
     this.scale.displaySize.setAspectRatio(
-      phaserConfig.width / phaserConfig.height,
+      defaultConfig.width / defaultConfig.height,
     );
     this.scale.refresh();
 
     this.title = this.add.sprite(
-      phaserConfig.width / 2,
-      phaserConfig.height / 2,
+      defaultConfig.width / 2,
+      defaultConfig.height / 2,
       "Title",
     )
       .setScale(8, 8)
@@ -26,7 +26,7 @@ export class GameScene extends Phaser.Scene {
     this.add.sprite(
       50,
       50,
-      "Hero",
+      "hero",
     ).setScale(10, 10)
       .play("Hero-Run");
 

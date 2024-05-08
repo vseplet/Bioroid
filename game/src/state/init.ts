@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { mainGameStateActor } from "./mainGameState";
+import { mainState } from "./mainState";
 
-window.mainGameStateActor = mainGameStateActor.start();
+window.mainState = mainState.start();

@@ -8,7 +8,7 @@ declare global {
     game: Phaser.Game;
     peer: Peer;
     gamepads: Phaser.Input.Gamepad;
-    mainGameStateActor: typeof mainGameStateActor;
+    mainState: typeof mainGameStateActor;
   }
 }
 

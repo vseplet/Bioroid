@@ -11,26 +11,17 @@
 	"iid": "04822d40-fec0-11ee-bd6c-97e06c52c25e",
 	"jsonVersion": "1.5.3",
 	"appBuildId": 473703,
-	"nextUid": 12,
+	"nextUid": 13,
 	"identifierStyle": "Capitalize",
-	"toc": [ {
-		"identifier": "Hero",
-		"instances": [],
-		"instancesData": [{ "iids": {
-			"worldIid": "04827b60-fec0-11ee-bd6c-c101bd38c4ab",
-			"levelIid": "0482a270-fec0-11ee-bd6c-11a4b68c1a21",
-			"layerIid": "fae43660-fec0-11ee-bd6c-31619202714f",
-			"entityIid": "5117c740-fec0-11ee-bd6c-739ca2857558"
-		}, "worldX": 76, "worldY": 132, "widPx": 8, "heiPx": 8, "fields" : {} }]
-	}, {
+	"toc": [ { "identifier": "hero", "instances": [], "instancesData": [] }, {
 		"identifier": "MobSpawner",
 		"instances": [],
 		"instancesData": [{ "iids": {
 			"worldIid": "04827b60-fec0-11ee-bd6c-c101bd38c4ab",
 			"levelIid": "0482a270-fec0-11ee-bd6c-11a4b68c1a21",
 			"layerIid": "fae43660-fec0-11ee-bd6c-31619202714f",
-			"entityIid": "7df70d70-fec0-11ee-bd6c-59936123bff3"
-		}, "worldX": 16, "worldY": 120, "widPx": 8, "heiPx": 8, "fields" : {} }]
+			"entityIid": "77e55180-fec0-11ee-bd6c-6bccf8e94e4f"
+		}, "worldX": 56, "worldY": 96, "widPx": 8, "heiPx": 8, "fields" : {} }]
 	} ],
 	"worldLayout": "Free",
 	"worldGridWidth": 256,
@@ -166,7 +157,7 @@
 		}
 	], "entities": [
 		{
-			"identifier": "Hero",
+			"identifier": "hero",
 			"uid": 7,
 			"tags": [],
 			"exportToToc": true,
@@ -231,8 +222,8 @@
 			"maxCount": 0,
 			"limitScope": "PerLevel",
 			"limitBehavior": "MoveLastOne",
-			"pivotX": 0.5,
-			"pivotY": 0.5,
+			"pivotX": 0,
+			"pivotY": 0,
 			"fieldDefs": []
 		}
 	], "tilesets": [
@@ -350,36 +341,20 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Hero",
-							"__grid": [11,16],
-							"__pivot": [0.5,0.5],
-							"__tags": [],
-							"__tile": { "tilesetUid": 5, "x": 128, "y": 704, "w": 16, "h": 16 },
-							"__smartColor": "#BE4A2F",
-							"iid": "5117c740-fec0-11ee-bd6c-739ca2857558",
-							"width": 8,
-							"height": 8,
-							"defUid": 7,
-							"px": [92,132],
-							"fieldInstances": [],
-							"__worldX": 76,
-							"__worldY": 132
-						},
-						{
 							"__identifier": "MobSpawner",
-							"__grid": [4,15],
-							"__pivot": [0.5,0.5],
+							"__grid": [9,12],
+							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": { "tilesetUid": 5, "x": 96, "y": 0, "w": 16, "h": 16 },
 							"__smartColor": "#D77643",
-							"iid": "7df70d70-fec0-11ee-bd6c-59936123bff3",
+							"iid": "77e55180-fec0-11ee-bd6c-6bccf8e94e4f",
 							"width": 8,
 							"height": 8,
 							"defUid": 8,
-							"px": [32,120],
+							"px": [72,96],
 							"fieldInstances": [],
-							"__worldX": 16,
-							"__worldY": 120
+							"__worldX": 56,
+							"__worldY": 96
 						}
 					]
 				},
@@ -702,6 +677,105 @@
 						{ "px": [136,120], "src": [40,8], "f": 0, "t": 19, "d": [377], "a": 1 },
 						{ "px": [144,120], "src": [40,8], "f": 0, "t": 19, "d": [378], "a": 1 }
 					],
+					"entityInstances": []
+				}
+			],
+			"__neighbours": []
+		},
+		{
+			"identifier": "Level3",
+			"iid": "1ec367c0-fec0-11ee-bd6c-fbceeb781138",
+			"uid": 12,
+			"worldX": 384,
+			"worldY": -16,
+			"worldDepth": 0,
+			"pxWid": 256,
+			"pxHei": 256,
+			"__bgColor": "#696A79",
+			"bgColor": null,
+			"useAutoIdentifier": false,
+			"bgRelPath": null,
+			"bgPos": null,
+			"bgPivotX": 0.5,
+			"bgPivotY": 0.5,
+			"__smartColor": "#ADADB5",
+			"__bgPos": null,
+			"externalRelPath": null,
+			"fieldInstances": [],
+			"layerInstances": [
+				{
+					"__identifier": "Entities",
+					"__type": "Entities",
+					"__cWid": 32,
+					"__cHei": 32,
+					"__gridSize": 8,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"iid": "1ec3b5e0-fec0-11ee-bd6c-0f133768debd",
+					"levelId": 12,
+					"layerDefUid": 6,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 4551745,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
+					"__identifier": "Colliders",
+					"__type": "Tiles",
+					"__cWid": 64,
+					"__cHei": 64,
+					"__gridSize": 4,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": 11,
+					"__tilesetRelPath": "../tilesets/colliders/colliders.png",
+					"iid": "1ec3b5e1-fec0-11ee-bd6c-9f3e03ad3793",
+					"levelId": 12,
+					"layerDefUid": 10,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 1228014,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
+					"__identifier": "Decoration",
+					"__type": "Tiles",
+					"__cWid": 32,
+					"__cHei": 32,
+					"__gridSize": 8,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": 1,
+					"__tilesetRelPath": "../tilesets/level/level.png",
+					"iid": "1ec3b5e2-fec0-11ee-bd6c-f9272109fdff",
+					"levelId": 12,
+					"layerDefUid": 2,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 1327589,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
 					"entityInstances": []
 				}
 			],

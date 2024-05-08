@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { generateZeroArray } from "../helpers/generateZeroArray";
+export function generateZeroArray(rows: number, cols: number): number[][] {
+  const zeroArray: number[][] = [];
+
+  for (let i = 0; i < rows; i++) {
+    zeroArray.push(Array(cols).fill(-1));
+  }
+
+  return zeroArray;
+}
 
 export function createLDtkilemap(
   scene: Phaser.Scene,

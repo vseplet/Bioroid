@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Phaser from "phaser";
-import { phaserConfig } from "../phaserConfig";
+import { defaultConfig } from "../configs/defaultConfig";
 import { Player } from "../objects/Player";
 
 export class GameScene extends Phaser.Scene {
@@ -12,26 +12,26 @@ export class GameScene extends Phaser.Scene {
     this.physics.world.setBounds(
       0,
       0,
-      phaserConfig.width,
-      phaserConfig.height,
+      defaultConfig.width,
+      defaultConfig.height,
     );
 
     this.scale.displaySize.setAspectRatio(
-      phaserConfig.width / phaserConfig.height,
+      defaultConfig.width / defaultConfig.height,
     );
     this.scale.refresh();
 
     const hero = new Player({
       scene: this,
-      x: phaserConfig.width / 2,
-      y: phaserConfig.height / 2,
-      texture: "Hero",
+      x: defaultConfig.width / 2,
+      y: defaultConfig.height / 2,
+      texture: "hero",
     });
 
     const rect = this.add.rectangle(
-      phaserConfig.width / 2,
-      phaserConfig.height - 10,
-      phaserConfig.width,
+      defaultConfig.width / 2,
+      defaultConfig.height - 10,
+      defaultConfig.width,
       20,
       0xffffff,
     );
